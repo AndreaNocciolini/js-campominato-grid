@@ -3,3 +3,46 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    height: 4em;
+}
+
+.header-img {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header img {
+    width: 35%;
+}
+
+.menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+}
+
+.menu-header label select {
+    width: 10em;
+}
+
+.menu-header button{
+    margin-left: 1em;
+    width: 3em;
+}
+/* End Header */
+
+/* Main */
+.container-fluid {
+    width: 100%;
+    height: calc(100vh - 4em);
+    background-color: #7fffd4;
+}
+/* End Main */
