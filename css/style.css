@@ -44,5 +44,30 @@ header img {
     width: 100%;
     height: calc(100vh - 4em);
     background-color: #7fffd4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    height: 600px;
+    margin: 3em auto;
+    border: solid 1px white;
+}
+
+/* Squares */
+.square-easy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% / 10);
+    height: calc(100%/ 10);
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+}
+/* End Squares */
 /* End Main */
