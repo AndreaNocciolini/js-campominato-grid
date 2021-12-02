@@ -44,6 +44,10 @@ function start(selectDiff, maxNum, minNum){
     
     square.style.height = `calc(100% / ${rowsCells})`;
     square.style.width = `calc(100% / ${rowsCells})`;
+
+    square.addEventListener(`click`, function(){
+    	this.style.backgroundColor = `blue`;
+    })
     
     square.innerHTML = i;
     container.appendChild(square);
