@@ -3,48 +3,49 @@
 // con difficoltà 2 => tra 1 e 81
 // con difficoltà 3 => tra 1 e 49
 // Quando l’utente clicca su ogni cella, la cella cliccata si colora di azzurro.
- function getRandomInt(min, max) {
-     min = Math.ceil(min);
-     max = Math.floor(max);
-     return Math.floor(Math.random() * (max - min) + min);
- }
 
-const container = document.querySelector(`.container`);
+let button = document.getElementById(`button`);
+let select = document.getElementById(`difficulty`);
+let numMin = 1;
+let numMax = 100;
 
-const rowEasy = 10;
-const rowHard = 9;
-const rowImpossible = 7;
-const colEasy = 10;
-const colHard = 9;
-const colImpossible = 7;
+//change difficulty
+select.addEventListener(`change`, function(){
+  start(select, numMax, numMin);
+});
 
-const numSquareEasy = rowEasy * colEasy;
-const numSquareHard = rowHard * colHard;
-const numSquareImpossible = rowImpossible * colImpossible;
+button.addEventListener(`click`, function(){
+	start(select, numMax, numMin);
+})
 
-const numbersRandom = [];
-for (let i = 0; i < numSquareEasy; i++) {
-    const square = document.createElement(`div`);
-    square.classList.add(`square-easy`);
-
-    let numberRandEasy = getRandomInt(1, 100);
-    // while (numbersRandom.includes(numberRandEasy)) {
-    //     numberRandEasy = getRandomInt(1, 10)
-    // }
-    // numbersRandom.push(numberRandEasy);
-
-
-    container.append(square);
-    square.append(numberRandEasy);
- }
-
-
-
-//  function getRandomInt(min, max) {
-//   min = Math.ceil(min);
-//   max = Math.floor(max);
-//   return Math.floor(Math.random() * (max - min) + min);
-//  }
-
-// const container = document.querySelector(`.container`);
-// const button = document.getElementById(`button`);
+function start(selectDiff, maxNum, minNum){
+	let container = document.querySelector(`.container`);
+  let rowsCells;
+	let difficulty = selectDiff.value;
+  container.innerHTML = ``;
+  console.log(difficulty);
+  
+  if(difficulty == 1){
+  numCells = 100;
+  rowsCells = 10;
+  }
+  else if (difficulty == 2){
+  numCells = 81;
+  rowsCells = 9;
+  }
+  else if (difficulty == 3){
+  numCells = 49;
+  rowsCells = 7;
+  }
+  
+  for(let i = minNum; i <= maxNum; i++){
+  	let square = document.createElement(`div`);
+    square.classList.add(`square`);
+    
+    square.style.height = `calc(100% / ${rowsCells})`;
+    square.style.width = `calc(100% / ${rowsCells})`;
+    
+    square.innerHTML = i;
+    container.appendChild(square);
+  }
+}
