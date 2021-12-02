@@ -38,7 +38,7 @@ function start(selectDiff, maxNum, minNum){
   rowsCells = 7;
   }
   
-  for(let i = minNum; i <= maxNum; i++){
+  for(let i = minNum; i <= numCells; i++){
   	let square = document.createElement(`div`);
     square.classList.add(`square`);
     
